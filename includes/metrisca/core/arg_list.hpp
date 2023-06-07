@@ -98,4 +98,5 @@ namespace metrisca {
 #define ARG_NAME_BIN_COUNT                "bin-count"
 #define ARG_NUMBER_SAMPLE_FILTER          "number-sample-filter"
 #define ARG_NAME_SCORES                   "scores"
+#define ARG_NAME_INPUT_FILE               "input-file-1"
 }

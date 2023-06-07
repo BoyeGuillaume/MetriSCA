@@ -199,7 +199,7 @@ public:
 
             std::vector<double> traces;
             while (std::getline(file, line)) {
-                if (line_number % 10000 == 0) {
+                if (line_number % num_traces == 0) {
                     bar.set_option(indicators::option::PostfixText{
                         std::to_string(line_number) + "/" + std::to_string(num_traces * num_samples)
                     });

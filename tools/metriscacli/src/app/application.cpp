@@ -102,7 +102,7 @@ namespace metrisca {
                 parser.AddPositionalArgument(ARG_NAME_DATASET, ArgumentType::Dataset, "The alias of the dataset to use.");
                 parser.AddOptionArgument(ARG_NAME_MODEL, { "-m", "--model" }, ArgumentType::String, "The identifier of the power model to use.");
                 parser.AddOptionArgument(ARG_NAME_TRAINING_DATASET, { "-tr", "--training" }, ArgumentType::Dataset, "The alias of the training dataset to use. (only used by the scores)", false);
-                parser.AddOptionArgument(ARG_NAME_DISTINGUISHER, { "-d", "--distinguisher" }, ArgumentType::String, "The identifier of the distinguisher to use.");
+                parser.AddOptionArgument(ARG_NAME_DISTINGUISHER, { "-d", "--distinguisher" }, ArgumentType::String, "The identifier of the distinguisher to use.", false);
                 parser.AddOptionArgument(ARG_NUMBER_SAMPLE_FILTER, { "-sf", "--sample-filter" }, ArgumentType::UInt32, "Number of sample kept after filtration. Notice that if this number is too big, this might lead to stability issues and bad-conditioned matrix.", "30");
                 parser.AddOptionArgument(ARG_NAME_OUTPUT_FILE, { "-o", "--out" }, ArgumentType::String, "The path of the output CSV file to save the result into.");
                 parser.AddOptionArgument(ARG_NAME_TRACE_COUNT, { "-t", "--traces" }, ArgumentType::UInt32, "The maximum number of traces to use during analysis. Default: #traces in the dataset.", false);
@@ -110,6 +110,7 @@ namespace metrisca {
                 parser.AddOptionArgument(ARG_NAME_SAMPLE_START, { "-s", "--start" }, ArgumentType::UInt32, "The index of the first sample to analyse.", "0");
                 parser.AddOptionArgument(ARG_NAME_SAMPLE_END, { "-e", "--end" }, ArgumentType::UInt32, "The non-inclusive index of the last sample to analyse. Default: #samples in the dataset.", false);
                 parser.AddOptionArgument(ARG_NAME_BIN_COUNT, { "-b", "--bin-count" }, ArgumentType::UInt32, "Number of bin when building the histogram according to the enumeration algorithm", "10000");
+                parser.AddOptionArgument(ARG_NAME_INPUT_FILE, { "-si", "--score-input-file" }, ArgumentType::String, "The input file to be used for external source scores", false);
                 parser.AddOptionArgument(ARG_NAME_SCORES, { "-sc", "--scores" }, ArgumentType::String, "The identifier of the scores to use."); 
                 parser.AddOptionArgument(ARG_NUMBER_SAMPLE_FILTER, { "-sf", "--sample-filter" }, ArgumentType::UInt32, "Number of sample kept after filtration. Notice that if this number is too big, this might lead to stability issues and bad-conditioned matrix.", "60");
                 command->AddSubParser(parser);
@@ -128,6 +129,7 @@ namespace metrisca {
                 parser.AddOptionArgument(ARG_NAME_SAMPLE_START, { "-s", "--start" }, ArgumentType::UInt32, "The index of the first sample to analyse.", "0");
                 parser.AddOptionArgument(ARG_NAME_SAMPLE_END, { "-e", "--end" }, ArgumentType::UInt32, "The non-inclusive index of the last sample to analyse. Default: #samples in the dataset.", false);
                 parser.AddOptionArgument(ARG_NAME_SCORES, { "-sc", "--scores" }, ArgumentType::String, "The identifier of the scores to use."); 
+                parser.AddOptionArgument(ARG_NAME_INPUT_FILE, { "-si", "--score-input-file" }, ArgumentType::String, "The input file to be used for external source scores", false);
                 parser.AddOptionArgument(ARG_NAME_MODEL, { "-m", "--model" }, ArgumentType::String, "The identifier of the power model to use."); 
                 parser.AddOptionArgument(ARG_NUMBER_SAMPLE_FILTER, { "-sf", "--sample-filter" }, ArgumentType::UInt32, "Number of sample kept after filtration. Notice that if this number is too big, this might lead to stability issues and bad-conditioned matrix.", "30");
                 parser.AddOptionArgument(ARG_NAME_DISTINGUISHER, { "-d", "--distinguisher" }, ArgumentType::String, "The identifier of the distinguisher to use.", false); // Optional
